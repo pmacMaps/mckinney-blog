@@ -347,6 +347,26 @@ body.post-single .post-content {
 	margin-bottom: 100px;		
 }
 
+body.post-single .social-sharing a.email-icon {
+	display: inline-block;	
+}
+
+body.post-single .social-sharing a.email-icon img {
+	height: 40px;
+	width: 45px;
+	margin-top: -2px;
+}
+
+/*** Social Sharing ***/
+div.fb-share-button.fb_iframe_widget,
+body.post-single .social-sharing a img {
+	margin-left: 25px;
+}
+
+div.fb-share-button.fb_iframe_widget iframe {
+	margin-top: -5px;
+}
+
 /*** page-not-found Page ***/
 body.page-not-found .page-content ul {
 	list-style-type: disc;
