@@ -1,4 +1,4 @@
-﻿---
+---
 layout: post
 title: Triathlon
 date: 2019-05-23
