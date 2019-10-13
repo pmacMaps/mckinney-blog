@@ -4,10 +4,13 @@
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
  */
 body {
-  font-family: 'Scope One', serif;  
-  overflow-x: hidden;
-  color: #000;
+  font-family: 'Scope One', serif;
+  overflow-x: hidden;  
   line-height: 1.5;
+}
+body,
+ul.navbar-nav > li > div.dropdown > ul.dropdown-menu > li > a {
+  color: #000;
 }
 p {
   font-size: 1.25em;
@@ -40,15 +43,27 @@ h6 {
 hr {
     border-top-color: #999;
 }
-.navbar-custom li {
-	margin-left: 25px;
-    padding-top: 25px;
-	font-size: 1.5em;
+.dropdown-menu {
+  border-color: #333;
 }
+.navbar-custom li,
+ul.navbar-nav > li > div.dropdown > button {
+	margin-left: 25px;
+}
+.navbar-custom li {
+  padding-top: 25px;
+}
+ul.navbar-nav > li > div.dropdown > button {
+  padding-top: 5px;
+}
+.navbar-custom li,
+ul.navbar-nav > li > div.dropdown > button,
 .navbar-custom li a {
     font-size: 1.5em;
 }
-
+ul.navbar-nav > li > div.dropdown > ul.dropdown-menu > li {
+  font-size: 1.05em;
+}
 .navbar-custom a:focus {
   outline: none;
 }
@@ -64,7 +79,8 @@ hr {
 .navbar-custom .navbar-nav {
   letter-spacing: 1px;  
 }
-.navbar-custom .navbar-nav li a {
+.navbar-custom .navbar-nav li a,
+ul.navbar-nav > li > div.dropdown > button {
   color: #E5DACA;
 }
 .navbar-custom .navbar-nav li a:focus,
@@ -92,6 +108,11 @@ hr {
   background-color: #373B3D;
   color: white;
   border-color: #373B3D;
+}
+/* navigation dropdown */
+ul.navbar-nav > li > div.dropdown > button.btn.btn-default {
+  background: inherit;
+  border-width: 0;
 }
 .floating-label-form-group {
   position: relative;
@@ -182,25 +203,51 @@ footer .footer-below {
 }
 
 /*** Header & Footer ***/
+.navbar-fixed-top .navbar-collapse {
+  max-height: 500px;
+}
+
+span.caret {
+    border-left: 9px solid transparent;
+    border-right: 9px solid transparent;
+    border-top: 9px solid #fff;
+}
+
 .navbar-custom,
 footer .footer-below {
     background: #317873;
 }
 
-.navbar-custom {  
-  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;  
-  text-transform: capitalize;
+.navbar-custom,
+ul.navbar-nav > li > div.dropdown > button,
+ul.navbar-nav > li > div.dropdown > span.caret {
   font-weight: 700;
+}
+
+.navbar-custom,
+ul.navbar-nav > li > div.dropdown > button,
+ul.navbar-nav > li > div.dropdown > span.caret,
+ul.navbar-nav > li > div.dropdown > ul.dropdown-menu > li > a {  
+  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;  
+  text-transform: capitalize;  
   border: none;
 }
 
 .navbar-custom .navbar-nav li a,
+ul.navbar-nav > li > div.dropdown > button,
 .navbar-custom .navbar-brand,
 .social-footer a {
     -webkit-transition: color 0.2s ease-in-out;
     -moz-transition: color 0.2s ease-in-out;
     -o-transition: color 0.2s ease-in-out;
     transition: color 0.2s ease-in-out;
+}
+
+ul.navbar-nav > li > div.dropdown > button > span.caret {
+  -webkit-transition: border-top-color 0.2s ease-in-out;
+  -moz-transition: border-top-color 0.2s ease-in-out;
+  -o-transition: border-top-color 0.2s ease-in-out;
+  transition: border-top-color 0.2s ease-in-out;
 }
 
 .navbar-custom .navbar-brand,
@@ -213,6 +260,9 @@ footer {
 .navbar-custom .navbar-brand:focus,
 .navbar-custom .navbar-nav li a:hover,
 .navbar-custom .navbar-nav li a:focus,
+ul.navbar-nav > li > div.dropdown > button:hover,
+ul.navbar-nav > li > div.dropdown > button:active,
+ul.navbar-nav > li > div.dropdown > ul.dropdown-menu > li > a:hover,
 /* Social icons in footer */
 .social-footer a:hover,
 .social-footer a:focus,
@@ -220,6 +270,20 @@ footer a,
 footer a:hover,
 footer a:focus {
     color: #FCC100;
+}
+
+ul.navbar-nav > li > div.dropdown > button:hover > span.caret,
+ul.navbar-nav > li > div.dropdown > button:active > span.caret {
+  border-top-color: #FCC100;
+}
+
+ul.navbar-nav > li > div.dropdown > ul.dropdown-menu > li {
+  padding-top: 0px;
+  margin: 5px 0;
+}
+
+ul.navbar-nav > li > div.dropdown > ul.dropdown-menu > li > a:hover {
+  background-color: #fff;
 }
 
 .navbar-brand img {
@@ -235,7 +299,7 @@ button.close {
 .home-intro {
     padding-top: 250px;
     padding-bottom: 125px;	
-	background: url(../assets/images/general/watercolor-stamen-map.jpeg) top center fixed; 
+	  background: url(../assets/images/general/watercolor-stamen-map.jpeg) top center fixed; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -354,7 +418,7 @@ body.post-single .social-sharing a img {
 }
 
 div.fb-share-button.fb_iframe_widget iframe {
-	margin-top: -5px;
+	margin-top: -8px;
 }
 
 /*** page-not-found Page ***/
@@ -376,7 +440,11 @@ body.page-not-found .page-content img {
 }
 
 @media screen and (max-width:768px) {
-	#mainNav {
+  .home-intro {
+    background: url(../assets/images/general/watercolor-stamen-map-small.jpeg) top center fixed;  
+  }  
+  
+  #mainNav {
 		padding: 15px 0;
 	}
 	
@@ -390,8 +458,12 @@ body.page-not-found .page-content img {
 	
 	.navbar-custom .navbar-toggle {
 		font-size: 1.5em;
-	}	
-	
+  }	
+  
+  .navbar-default .navbar-nav .open .dropdown-menu>li>a {
+    color: #fff;
+  }
+
 	/*.feat-posts .thumbnail*/
 	body.home .feat-posts .container .row .col-md-4 {
 		margin: 125px 0px;
